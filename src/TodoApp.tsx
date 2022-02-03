@@ -1,7 +1,10 @@
 import React from 'react';
 import './index.css'
+import AppRouter from './routers/AppRouter';
 const TodoApp = () => {
-  return <h1>Hello again!</h1>;
+  return (
+    <AppRouter />
+  );
 };
 
 export default TodoApp;
