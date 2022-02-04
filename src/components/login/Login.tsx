@@ -1,5 +1,7 @@
-import React, { FormEvent } from 'react';
+import React, { FormEvent, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
+import { doLogin } from '../../actions/actionUserLogin';
+import TodoContext from '../../context/TodoContext';
 import useForm from '../../hooks/useForm';
 
 interface FormData {
@@ -15,10 +17,12 @@ const Login = () => {
 
   const { nick } = formValues;
 
+  const { loginDispatch } = useContext(TodoContext);
+
   const handleSubmitLogin = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     if (nick.trim().length < 3) return;
-
+    loginDispatch(doLogin(nick));
     history.replace('/');
   };
 

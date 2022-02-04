@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink, useHistory } from 'react-router-dom';
+import TodoContext from '../../context/TodoContext';
+import { doLogout } from '../../actions/actionUserLogin';
 
 const NavBar = () => {
   const history = useHistory();
+  const { loginState, loginDispatch } = useContext(TodoContext);
   const handleClickLogout = () => {
+    loginDispatch(doLogout());
     history.replace('/login');
   };
 
@@ -31,7 +35,7 @@ const NavBar = () => {
           </li>
         </ul>
       </div>
-      <span className="navbar-text text-info me-3"> UserName </span>
+      <span className="navbar-text text-info me-3"> {loginState.nick} </span>
       <button
         className="btn btn-outline-secondary"
         type="button"
