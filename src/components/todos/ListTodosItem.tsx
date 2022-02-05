@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import TodoContext from '../../context/TodoContext';
+import { doDeleteTodo } from '../../actions/TodosActions';
 
 interface TodosItemProps {
   id: string;
@@ -8,6 +10,11 @@ interface TodosItemProps {
 }
 
 const ListTodosItem = ({ index, id, title, state }: TodosItemProps) => {
+  const { todosDispatch } = useContext(TodoContext);
+
+  const handleClickDelete = (id: string): void => {
+    todosDispatch(doDeleteTodo(id));
+  };
   return (
     <tr>
       <td>{index + 1}</td>
@@ -21,7 +28,11 @@ const ListTodosItem = ({ index, id, title, state }: TodosItemProps) => {
         <button type="button" className="btn btn-info me-1">
           Edit
         </button>
-        <button type="button" className="btn btn-danger me-1">
+        <button
+          type="button"
+          className="btn btn-danger me-1"
+          onClick={() => handleClickDelete(id)}
+        >
           Delete
         </button>
       </td>
