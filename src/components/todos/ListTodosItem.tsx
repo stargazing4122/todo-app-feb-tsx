@@ -24,6 +24,7 @@ const ListTodosItem = ({ index, id, title, state }: TodosItemProps) => {
       <td>{index + 1}</td>
       <td>{id}</td>
       <td
+        onClick={() => handleClickToggle(id)}
         style={{
           cursor: 'pointer',
           textDecoration: state ? 'line-through' : '',
