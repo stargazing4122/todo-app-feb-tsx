@@ -24,6 +24,7 @@ const EditTodo = ({ todo, setEditionMode, todosDispatch }: EditTodoProps) => {
 
   const handleEditTodo = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
+    if (newTitle.trim().length < 3) return;
     const todoEdited: Todo = {
       ...todo,
       title: newTitle,
@@ -44,7 +45,11 @@ const EditTodo = ({ todo, setEditionMode, todosDispatch }: EditTodoProps) => {
         name="newTitle"
         onChange={handleValue}
       />
-      <button type="submit" className="btn btn-outline-info me-1">
+      <button
+        type="submit"
+        className="btn btn-outline-info me-1"
+        disabled={newTitle.trim().length < 3}
+      >
         Save
       </button>
       <button

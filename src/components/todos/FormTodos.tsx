@@ -39,7 +39,11 @@ const FormTodos = () => {
           value={todoTitle}
           onChange={handleValue}
         />
-        <button className="btn btn-outline-secondary" type="submit">
+        <button
+          className="btn btn-primary"
+          type="submit"
+          disabled={todoTitle.trim().length < 3}
+        >
           Add
         </button>
       </form>
