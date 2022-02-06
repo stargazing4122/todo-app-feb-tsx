@@ -5,7 +5,7 @@ import ListTodosItem from './ListTodosItem';
 const ListTodos = () => {
   const { todosState } = useContext(TodoContext);
   return (
-    <div>
+    <div className="container-table">
       <table className="table table-dark table-striped">
         <thead>
           <tr>
@@ -13,7 +13,7 @@ const ListTodos = () => {
             <th>Id</th>
             <th>Title</th>
             <th>State</th>
-            <th>Actions</th>
+            <th className="text-center">Actions</th>
           </tr>
         </thead>
         <tbody>

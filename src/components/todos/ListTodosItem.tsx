@@ -41,7 +41,7 @@ const ListTodosItem = ({ index, id, title, state }: TodosItemProps) => {
           {title}
         </td>
         <td>{state ? 'completed' : 'incompleted'}</td>
-        <td>
+        <td className="text-center">
           {!editionMode ? (
             <>
               <button

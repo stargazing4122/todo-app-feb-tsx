@@ -1,4 +1,13 @@
 body {
-    background-color: #21232A;
-    color: azure;
+  background-color: #21232a;
+  color: azure;
+}
+
+table {
+  min-width: 800px;
+  max-width: 1000px;
+}
+
+.container-table {
+  overflow-x: auto;
 }
